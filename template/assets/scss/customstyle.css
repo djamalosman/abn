@@ -1,0 +1,25 @@
+    td{
+        white-space: nowrap;
+        font-size: 13px;
+    }
+     th{
+        white-space: nowrap;
+        font-size: 13px;
+    }
+    .btn{
+        font-size: 11px;
+
+    }
+    .dataTables_wrapper{
+        font-size: 12px;
+    }
+
+
+   
+/*
+    #left-panel{
+        width: 250px;
+        position: fixed;
+        height: 100vh;
+        overflow: scroll;
+    }*/

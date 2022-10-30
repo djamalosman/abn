@@ -1,0 +1,58 @@
+<table border="1px">
+  <tr>
+    <th rowspan="11" width="3%">a</th>
+    <td width="40%" style="font : 13px;font-weight: bold;">Nama Debitur</td>
+    <td style="text-align:center;font : 13px;font-weight: bold;"width="5%"><b>:</b></td>
+    <td style="font : 13px;font-weight: bold; padding-left:7px;"><?php echo $getdata_pelunasan_ptbam_row->nama_debitur ?></td>
+  </tr>
+  <tr>
+    <td style="font : 13px;font-weight: bold;">Alamat Debitur</td>
+    <td style="text-align:center;font : 13px;font-weight: bold;"><b>:</b></td>
+    <td style="font : 13px;padding-left:7px;"><?php echo $getdata_pelunasan_ptbam_row->alamat_debitur ?></td>
+  </tr>
+  <tr>
+    <td style="font : 13px;font-weight: bold;">Cif</td>
+     <td style="text-align:center;font : 13px;font-weight: bold;"><b>:</b></td>
+    <td style="font : 13px;padding-left:7px;"><?php echo $getdata_pelunasan_ptbam_row->cif ?></td>
+  </tr>
+  <tr>
+    <td style="font : 13px;font-weight: bold;">Bidang Usaha</td>
+     <td style="text-align:center;font : 13px;font-weight: bold;"><b>:</b></td>
+    <td style="font : 13px; padding-left:7px;"><?php echo $getdata_pelunasan_ptbam_row->bidang_usaha ?></td>
+  </tr>
+  <tr>
+    <td style="font : 13px;font-weight: bold;">Lokasi Usaha</td>
+     <td style="text-align:center;font : 13px;font-weight: bold;"><b>:</b></td>
+    <td style="font : 13px;padding-left:7px"><?php echo $getdata_pelunasan_ptbam_row->lokasi_usaha ?></td>
+  </tr>
+  <tr>
+    <td style="font : 13px;font-weight: bold;">Nama Group Usaha</td>
+     <td style="text-align:center;font : 13px;font-weight: bold;"><b>:</b></td>
+    <td style="font : 13px;padding-left:7px;"><?php echo $getdata_pelunasan_ptbam_row->nama_group_usaha ?></td>
+  </tr>
+  <tr>
+    <td style="font : 13px;font-weight: bold;">Debitur Sejak</td>
+     <td style="text-align:center;font : 13px;font-weight: bold;"><b>:</b></td>
+    <td style="font : 13px;padding-left:7px;"><?php echo $getdata_pelunasan_ptbam_row->debitur_sejak ?></td>
+  </tr>
+  <tr>
+    <td style="font : 13px;font-weight: bold;">Menunggak Sejak</td>
+     <td style="text-align:center;font : 13px;font-weight: bold;"><b>:</b></td>
+    <td style="font : 13px;padding-left:7px;"><?php echo $getdata_pelunasan_ptbam_row->menunggak_sejak ?></td>
+  </tr>
+   <tr>
+    <td style="font : 13px;font-weight: bold;">Hari Tunggakan (DPD)</td>
+     <td style="text-align:center;font : 13px;font-weight: bold;"><b>:</b></td>
+    <td style="font : 13px;padding-left:7px;"><?php echo $getdata_pelunasan_ptbam_row->dpd ?></td>
+  </tr>
+  <tr>
+    <td style="font : 13px;font-weight: bold;">Kolektibilitas</td>
+     <td style="text-align:center;font : 13px;font-weight: bold;"><b>:</b></td>
+    <td style="font : 13px;padding-left:7px;"><?php echo $getdata_pelunasan_ptbam_row->kolektibilitas ?></td>
+  </tr>
+  <tr>
+    <td style="font : 13px;font-weight: bold;">CKPN</td>
+     <td style="text-align:center;font : 13px;font-weight: bold;"><b>:</b></td>
+    <td style="font : 13px;padding-left:7px;"><?php echo $getdata_pelunasan_ptbam_row->ckpn ?></td>
+  </tr>
+</table>
