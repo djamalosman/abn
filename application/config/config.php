@@ -24,9 +24,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$config['base_url'] = 'https://abn-nasdem.com';
-//$config['base_url'] = 'http://localhost/bisa/';
-//$config['base_url'] = 'http://anagata.co.id/c24system/';
+//$config['base_url'] = 'https://abn-nasdem.com';
+$config['base_url'] = 'http://localhost:8080/abn/';
+
 
 /*
 |--------------------------------------------------------------------------

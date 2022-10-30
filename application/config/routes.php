@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'C_welcome';
+$route['default_controller'] = 'Welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
@@ -58,6 +58,14 @@ $route['homeadmin']='menu/home';
 $route['loginadmin']='menu/process_login';
 $route['v_loginadmin']='menu/index';
 
+
+// new link view
+$route['home']='Home/index';
+$route['news']='News/index';
+$route['news']='About/index';
+$route['news']='Radio/index';
+$route['news']='Sk/index';
+//end new link
 
 $route['create_about']='Create_document_about/view_create_docabout';
 $route['create_tokoh']='Create_document_tokoh/view_create_doctokoh';
@@ -78,8 +86,3 @@ $route['video_v']='Create_document_video/index';
 $route['data_news']='Create_document/v_all_doc_news';
 $route['data_opini']='Create_document_opini/v_all_doc_opini';
 $route['data_agenda']='Create_document_agenda/v_all_doc_agenda';
-//$route['data_news']='Create_document/v_all_doc_news';
-// $route['news_data']='Create_document/v_all_doc_news';
-// $route['opini_data']='Create_document/v_all_doc_news';
-// $route['agenda_data']='Create_document/v_all_doc_news';
-
