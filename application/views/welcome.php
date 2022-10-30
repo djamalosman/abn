@@ -16,14 +16,21 @@
         </head>
   <body>
         <h2>
-          <img src="<?php echo base_url ('assets/pago/img/latar.jpg')?>" alt="image" class="latar">
+              <?php foreach ($data as $image){ ?>
+                    <img src="<?php echo base_url('uploads/' . $image->file_content); ?>" alt="image" class="latar">
+               <?php } ?>  
+         
         </h2>
         <nav>
           <div class="text-slide">
-            <p>Cerdas Militan Terampil</p>
+          <?php foreach ($data as $slidesatu){ ?>
+                <p><?php echo $slidesatu->textslidesatu ?></p>
+          <?php } ?> 
           </div>
           <div class="text-slide2">
-            <p>Style Smile Safety</p>
+          <?php foreach ($data as $slidesatu){ ?>
+                <p><?php echo $slidesatu->textslidedua ?></p>
+          <?php } ?>
           </div>
           <div>
             <a href="<?php echo base_url('Welcome/Index') ?>" target="_self">

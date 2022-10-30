@@ -37,12 +37,12 @@ class News extends CI_Controller {
 	//  $result['v_about'] = $this->Model_create_document->views_about_welcome();
 
 	 //$this->load->view('home',$result);
-	 $result['welcome'] =0;
-     $result['Home_c'] =0;
-	 $result['Header'] =1;
-     $result['N_A'] =1;
-     $this->load->view('templates/header',$result);
+	//  $result['welcome'] =0;
+    //  $result['Home_c'] =0;
+	//  $result['Header'] =1;
+    //  $result['N_A'] =1;
+    // $this->load->view('templates/header',$result);
      $this->load->view('news');
-     $this->load->view('templates/home/footer');
+    // $this->load->view('templates/home/footer');
 	}
 }

@@ -62,9 +62,14 @@ $route['v_loginadmin']='menu/index';
 // new link view
 $route['home']='Home/index';
 $route['news']='News/index';
-$route['news']='About/index';
-$route['news']='Radio/index';
-$route['news']='Sk/index';
+$route['about']='About/index';
+$route['radio']='Radio/index';
+$route['sk']='Sk/index';
+
+    /* Create New Link */
+        $route['welcomeadmin']='welcome/vdata';
+        $route['welcomecreate']='welcome/vcrtwelcome';
+    /* end Create New Link */
 //end new link
 
 $route['create_about']='Create_document_about/view_create_docabout';

@@ -8,6 +8,35 @@
 
 class Model_create_document extends CI_Model {
 
+
+    // welcome
+        public function views_welcome() {
+            $query = "select * from  document_welcome ";
+            $data = $this->db2->query($query)->result();
+            return $data;
+        }
+
+        public function insert_data_welcome($uploadData) {  
+            //print_r($data);
+            $this->db2->insert_batch('document_welcome',$uploadData);
+        }
+
+        public function getdata_welcome($codeimage,$id) {
+            $query = "select * from  document_welcome where id_welcome='".$id."' AND code_image='".$codeimage."'  ";
+            $data = $this->db2->query($query)->row();
+            return $data;
+        }
+
+        public function update_datawelcome($uploadData,$id) {  
+            
+            $this->db2->update_batch('document_welcome',$uploadData,'id_welcome');
+        }
+
+      
+
+    // end welcome
+
+
     public function get_searcmpk_restrukturisasi($userid) {
         $select = "select * from bss_employee as a join t_dep_head  as b on a.nik = b.f_nik where a.nik = '" . $userid . "'";
         $a = $this->db2->query($select)->num_rows();
