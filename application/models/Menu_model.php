@@ -472,7 +472,7 @@ class Menu_model extends CI_Model {
             right join t_levelmheader
             on t_levelmheader.f_menuid=t_menudetail.f_parentid and t_levelmheader.f_levelid="' . $this->session->userdata('level') . '"
 
-            where t_menudetail.f_parentid is not null
+            where t_menudetail.f_parentid is not null group by t_menudetail.f_itemname
 
             order by t_menudetail.f_parentid,t_levelmdetail.f_menuid';
 
