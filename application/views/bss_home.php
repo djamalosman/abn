@@ -98,7 +98,7 @@
             <a href="<?php echo base_url('menu/home');?>" class="navbar-brand hidden-xs hidden-sm">
                 <!-- <img src="<?php echo base_url('bst/Bootstrap/admin-html/img/logo.png') ?>" class="logo hidden-xs" alt="Dynamic logo"> -->
                 
-                <img src="<?php echo base_url('template/images/logokecil1.png') ?>" class="logo-sm hidden-lg hidden-md" alt="Dynamic logo">
+                <img src="<?php echo base_url('template/images/iphone.png') ?>" class="logo-sm hidden-lg hidden-md" alt="Dynamic logo">
                 <!-- <img src="<?php echo base_url('bst/Bootstrap/admin-html/img/logosm.png') ?>" class="logo-sm hidden-lg hidden-md" alt="Dynamic logo"> -->
                 <!-- <?php echo base_url('bst/Bootstrap/admin-html/img/logosm.png') ?>" -->
             </a>
