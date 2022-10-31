@@ -24,6 +24,7 @@
                   height: 100%;
                   margin: 0;
                 }
+                
               </style>
     </head>
     <nav>
@@ -59,15 +60,13 @@
     </nav>
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
       <div class="carousel-inner">
+        <?php 
+          foreach ($foto as $file) {
+        ?>
         <div class="carousel-item active">
-          <img src="<?php echo base_url('assets/pago/img/1.jpg') ?>" class="d-block w-100" alt="...">
+          <img src="<?php echo base_url('uploads/' . $file->file_content); ?>" class="d-block w-100" alt="...">
         </div>
-        <div class="carousel-item">
-          <img src="<?php echo base_url('assets/pago/img/2.jpg') ?>" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="<?php echo base_url('assets/pago/img/3.jpg') ?>" class="d-block w-100" alt="...">
-        </div>
+        <?php } ?>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -90,20 +89,22 @@
                 </a>
               </div>
               <!-- and btn nasdem.id -->
-              <div class="button-search">
-                <div id="search">
-                  <div id="search-input">
-                    <input type="text" class="search-field berita" placeholder="Cari Artikel">
-                    <button id="button"><i class="fa fa-search"></i></button>
+              <form action="<?php echo base_url('Home/SearchBerita'); ?>" method="post">
+                  <div class="button-search">
+                    <div id="search">
+                      <div id="search-input">
+                        <input type="text" name="cariartikel" class="search-field berita" placeholder="Cari Artikel">
+                        <button id="button"><i class="fa fa-search"></i></button>
+                      </div>
+                    </div>
+                    <div>
+                    <!-- Search Input when Mobile -->
+                    <div id="search-input2">
+                      <input type="text" class="search-field berita" placeholder="Cari Artikel">
+                      <button id="button"><i class="fa fa-search"></i></button>
+                    </div>
                   </div>
-                </div>
-                <div>
-                <!-- Search Input when Mobile -->
-                <div id="search-input2">
-                  <input type="text" class="search-field berita" placeholder="Cari Artikel">
-                  <button id="button"><i class="fa fa-search"></i></button>
-                </div>
-              </div>
+              </form>
               <div id="liputan"></div>
               <div class="animasi"><b>Berita Terkini</b></div>
               <p class="liputan1">Berita terkini Akademi Bela Negara NasDem dan Partai NasDem </p>
@@ -111,21 +112,43 @@
                 <section id="card">
                   <div class="container">
                     <div class="row row-cols-1 row-cols-md-3 g-4">
-                      <div class="col mb-5">
-                        <div class="card h-100">
-                          <img src="<?php echo base_url('assets/pago/img/IMG_5554.JPG') ?>" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">News ABN</h5>
-                            <p class="card-text">GUBERNUR Akademi Bela Negara (ABN) NasDem IGK Manila sangat mengapresiasi aksi
-                              panen perdana jagung hibrida
-                              yang digagas Ketua Dewan Pakar NasDem Sukabumi Ayep Zaki.Opa Manila..</p>
-                          </div>
-                          <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                          </div>
-                        </div>
+                      <?php foreach($v_news as $item){ ?>  
+                          <div class="col mb-5">
+                            <div class="card h-100">
+                             
+                                <a href="<?php echo base_url("C_one_doc_news/v_one_news/" . $item->code_image . '-' . $item->id_docnews) ?>">
+                                      <img src="<?php echo base_url('uploads/' . $item->file_content)?>" style="height:260px" class="card-img-top" alt="...">    
+                                </a>
+                              <div class="card-body">
+                                
+                                  <h6 class="card-title" ><?php echo $item->judul; ?></h6>
+
+                                  <p class="card-text">
+                                    
+                                    <?php 
+                                    $string = strip_tags($item->description);
+                                    if (strlen($string) > 500) {
+                                    
+                                        // truncate string
+                                        $stringCut = substr($string, 0, 500);
+                                        $endPoint = strrpos($stringCut, ' ');
+                                    
+                                        //if the string doesn't contain any space then it will cut without word basis.
+                                        $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                                        $string .= '... <a href="C_one_doc_news/v_one_news/'.$item->code_image."-".$item->id_docnews.'">Read More</a>';
+                                    }
+                                    echo $string;
+                                    //echo $item->description; ?>
+                                  </p>
+                              </div>
+                              <div class="card-footer">
+                                <small class="text-muted"><i class="fa fa-calendar s16"></i>
+                                                   <?php echo $item->tanggal_insert ?></small>
+                              </div>
+                            </div>
                       </div>
-                      <div class="col mb-5">
+                      <?php  } ?> 
+                      <!-- <div class="col mb-5">
                         <div class="card h-100 text-center">
                           <img src="<?php echo base_url('assets/pago/img/IMG_5599.JPG') ?>" class="card-img-top" alt="...">
                           <div class="card-body">
@@ -152,7 +175,7 @@
                             <small class="text-muted">Last updated 3 mins ago</small>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </section>

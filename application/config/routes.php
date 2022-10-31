@@ -58,7 +58,7 @@ $route['homeadmin']='menu/home';
 $route['loginadmin']='menu/process_login';
 $route['v_loginadmin']='menu/index';
 
-
+$route['c_welcome']='C_welcome/index';
 // new link view
 $route['home']='Home/index';
 $route['news']='News/index';
@@ -69,6 +69,9 @@ $route['sk']='Sk/index';
     /* Create New Link */
         $route['welcomeadmin']='welcome/vdata';
         $route['welcomecreate']='welcome/vcrtwelcome';
+
+        $route['homeadmin']='home/homevdata';
+
     /* end Create New Link */
 //end new link
 

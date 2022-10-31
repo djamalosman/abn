@@ -31,11 +31,39 @@ class Model_create_document extends CI_Model {
             
             $this->db2->update_batch('document_welcome',$uploadData,'id_welcome');
         }
-
-      
-
     // end welcome
+        
+    // beranda
+        public function views_beranda() {
+            $query = "select * from  document_beranda ";
+            $data = $this->db2->query($query)->result();
+            return $data;
+        }
+        public function imageviewberanda() {
+            $data="SELECT * FROM document_beranda ";
+           return $this->db2->query($data)->row();
+        }
 
+        public function insertimageberanda($result) {
+          $this->db2->insert_batch('document_beranda',$result);
+        }
+
+        public function deleteimageberanda($idnya) {
+            foreach ($idnya as $item) {
+                $this->db2->where('file_content', $item);
+                $this->db2->delete('document_beranda');
+            }
+        }
+
+    // end beranda
+
+    // berita
+        public function get_berita($id_news) {
+            $query = "select * from  document_news order by  tanggal_insert desc limit 6 ";
+            $data = $this->db2->query($query)->result();
+            return $data;
+        }
+    // end berita
 
     public function get_searcmpk_restrukturisasi($userid) {
         $select = "select * from bss_employee as a join t_dep_head  as b on a.nik = b.f_nik where a.nik = '" . $userid . "'";
@@ -85,8 +113,9 @@ class Model_create_document extends CI_Model {
         //print_r($usulan_kredit);
         return 1;
     }
+   
     public function views_news_welcome($id_news) {
-        $query = "select * from  document_news order by  tanggal_insert desc limit 4 ";
+        $query = "select * from  document_news order by  tanggal_insert desc limit 6 ";
         $data = $this->db2->query($query)->result();
         return $data;
     }
