@@ -5,6 +5,15 @@
               <meta name="viewport" content="width=device-width, initial scale=1.0" />
               <meta http-equiv="X/UA-Compatible" content="ie=edge" />
               <title> Akademi Bela Negara NasDem</title>
+              <?php foreach($v_news as $item){ ?>  
+              <link rel="preload" as="image" href="<?php echo base_url('uploads/' . $item->file_content)?>">
+              <?php } ?>
+
+              <?php foreach($v_image as $item){ ?>  
+              <link rel="preload" as="image" href="<?php echo base_url('uploads/' . $item->file_content)?>">
+              <?php } ?>
+              <link rel="preload" as="image" href="<?php echo base_url('assets/pago/img/testi.jpg') ?>">
+              
               <link rel="shortcut icon" href="<?php echo base_url("template/images/favicon.ico") ?>">
               <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins&display=swap"
                 rel="stylesheet">
@@ -12,12 +21,15 @@
               <link rel="stylesheet" href="<?php echo base_url('assets/pago/css/style2.css') ?>">
               <link href="<?php echo base_url('assets/pago/icon/css/all.css') ?>" rel="stylesheet">
               <link href="<?php echo base_url('assets/pago/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
-              <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-                integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-                crossorigin="" />
-              <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-                integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-                crossorigin=""></script>
+                <!-- LEAFLET -->
+              <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+              <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+              <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+              <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+
+               <!-- LEAFLET CONTROL SEARCH -->
+              <link rel="stylesheet" href="<?= base_url('leaflet-search/src/leaflet-search.css'); ?>" />
+              <script src="<?= base_url('leaflet-search/src/leaflet-search.js'); ?>"></script>
               <style>
                 html,
                 body {
@@ -123,7 +135,7 @@
                                 
                                   <h6 class="card-title" ><?php echo $item->judul; ?></h6>
 
-                                  <p class="card-text">
+                                  <p class="card-text" style="text-align: left;">
                                     
                                     <?php 
                                     $string = strip_tags($item->description);
@@ -135,10 +147,9 @@
                                     
                                         //if the string doesn't contain any space then it will cut without word basis.
                                         $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                                        $string .= '... <a href="C_one_doc_news/v_one_news/'.$item->code_image."-".$item->id_docnews.'">Read More</a>';
+                                        $string .= '... <a href="C_one_doc_news/v_one_news/'.$item->code_image."-".$item->id_docnews.'">Selengkapnya</a>';
                                     }
-                                    echo $string;
-                                    //echo $item->description; ?>
+                                    echo $string; ?>
                                   </p>
                               </div>
                               <div class="card-footer">
@@ -148,34 +159,6 @@
                             </div>
                       </div>
                       <?php  } ?> 
-                      <!-- <div class="col mb-5">
-                        <div class="card h-100 text-center">
-                          <img src="<?php echo base_url('assets/pago/img/IMG_5599.JPG') ?>" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">News ABN</h5>
-                            <p class="card-text">DPP Partai NasDem bekerja sama dengan Akademi Bela Negara NasDem menyerahkan
-                              hewan kurban
-                              kepada masjid dan panti asuhan daerah Jakarta Selatan untuk disembelih pada Hari Raya Idul adha..
-                            </p>
-                          </div>
-                          <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col mb-5">
-                        <div class="card h-100 text-end">
-                          <img src="<?php echo base_url('assets/pago/img/IMG_9941.JPG') ?>" class="card-img-top" alt="...">
-                          <div class="card-body">
-                            <h5 class="card-title">News ABN</h5>
-                            <p class="card-text">Sebanyak 60 orang kader partai NasDem mengikuti Pendidikan Politik atau Dikpol
-                              dengan tajuk Desain Roadmap Pemenangan NasDem 2024 berbasis Struktur Partai.</p>
-                          </div>
-                          <div class="card-footer">
-                            <small class="text-muted">Last updated 3 mins ago</small>
-                          </div>
-                        </div>
-                      </div> -->
                     </div>
                   </div>
                 </section>
@@ -196,18 +179,11 @@
                 <div class="animasi"><b>Bank Foto</b></div>
                 <h2 class="liputan1">Dokumentasi kegiatan Akademi Bela Negara NasDem </h2>
                 <div class="gambar">
-                  <div class="box">
-                    <img src="<?php echo base_url('assets/pago/img/DIT_8764.JPG') ?>">
-                  </div>
-                  <div class="box">
-                    <img src="<?php echo base_url('assets/pago/img/DIT_9263.JPG') ?>">
-                  </div>
-                  <div class="box">
-                    <img src="<?php echo base_url('assets/pago/img/IMG_9200.JPG') ?>">
-                  </div>
-                  <div class="box">
-                    <img src="<?php echo base_url('assets/pago/img/ss.png') ?>">
-                  </div>
+                  <?php foreach($v_image as $item){ ?>  
+                    <div class="box">
+                      <img src="<?php echo base_url('uploads/' . $item->file_content)?>" style="height:130px">
+                    </div>
+                  <?php } ?>
                 </div>
               </div>
 
@@ -360,32 +336,84 @@
       
     </footer>
     <script>
-      var map = L.map('map').setView([-6.246849, 106.846596], 10);
+      
+  // data dari database
+	var data = [
+                <?php foreach($map as $key => $value) { ?>
+                    {"lokasi":[<?= $value->latitude; ?>,<?= $value->longitude; ?>], "wilayah":"<?= $value->lokasi; ?>"},
+                <?php } ?>
+	            ];
 
-      var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-      }).addTo(map);
+              var map = new L.Map('map', {zoom: 10, center: new L.latLng(-6.246849, 106.846596),     zoomControl: false});	
+//set center from first location
+L.control.zoom({
+    position: 'bottomright'
+}).addTo(map);
 
-      var marker = L.marker([-6.246849, 106.846596]).addTo(map)
-        .bindPopup('<b>Petani NasDem</b><br />Lokasi Pertanian Kedelai.').openPopup();
+    map.addLayer(new L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+		zoomOffset: -1
+    }));
+
+    var icon1 = L.icon({
+        iconUrl: '<?= base_url('icon/icon-marker.png'); ?>',
+
+        iconSize:     [30, 38], // size of the icon
+        iconAnchor:   [15, 35], // point of the icon which will correspond to marker's location
+        popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+
+  // CONTROL SEARCH
+	var markersLayer = new L.LayerGroup();	//layer contain searched elements
+	
+	map.addLayer(markersLayer);
+
+	map.addControl( new L.Control.Search({
+		position:'topright',		
+		layer: markersLayer,
+		initial: false,
+		zoom: 17,
+        collapsed: true
+	}) );
+
+
+	//populate map with markers from sample data
+	for(i in data) {
+		var wilayah = data[i].wilayah,	//value searched
+			lokasi = data[i].lokasi,		//position found
+			marker = new L.Marker(new L.latLng(lokasi), {title: wilayah, icon: icon1} );//se property searched
+		marker.bindPopup('Lokasi: '+ wilayah );
+		markersLayer.addLayer(marker);
+	}
+      //var map = L.map('map').setView([-6.246849, 106.846596], 10);
+
+      // var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      //   maxZoom: 19,
+      //   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      // }).addTo(map);
+
+      // var marker = L.marker([-6.246849, 106.846596]).addTo(map)
+      //   .bindPopup('<b>Petani NasDem</b><br />Lokasi Pertanian Kedelai.').openPopup();
 
 
 
 
-      var popup = L.popup()
-        .setLatLng([-6.246849, 106.846596])
-        .setContent('Lokasi Petani NasDem.')
-        .openOn(map);
+      // var popup = L.popup()
+      //   .setLatLng([-6.246849, 106.846596])
+      //   .setContent('Lokasi Petani NasDem.')
+      //   .openOn(map);
 
-      function onMapClick(e) {
-        popup
-          .setLatLng(e.latlng)
-          .setContent('You clicked the map at ' + e.latlng.toString())
-          .openOn(map);
-      }
+      // function onMapClick(e) {
+      //   popup
+      //     .setLatLng(e.latlng)
+      //     .setContent('You clicked the map at ' + e.latlng.toString())
+      //     .openOn(map);
+      // }
 
-      map.on('click', onMapClick);
+      // map.on('click', onMapClick);
 
     </script>
     <script src="<?php echo base_url ('assets/pago/css/script.js')?>"></script>

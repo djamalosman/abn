@@ -64,6 +64,66 @@ class Model_create_document extends CI_Model {
             return $data;
         }
     // end berita
+    
+
+    // Bank Foto
+        public function views_image_bankfoto($id_image) {
+            $query = "select * from  document_image order by id_image desc limit 4 ";
+            $data = $this->db2->query($query)->result();
+            return $data;
+        }
+    //
+
+
+    // maps
+    
+        public function getmapdata() {
+            $query = "select * from  document_map ";
+            $data = $this->db2->query($query)->result();
+            return $data;
+        }
+
+        public function getmapdcode() {
+            $cd = $this->db2->query("SELECT MAX(RIGHT(kodemap,4)) AS kd_max FROM document_map WHERE DATE(tanggal)=CURDATE()");
+            $kd = "";
+            if($cd->num_rows()>0){
+                foreach($cd->result() as $k){
+                    $tmp = ((int)$k->kd_max)+1;
+                    $kd = sprintf("%04s", $tmp);
+                }
+            }else{
+                $kd = "0001";
+            }
+            date_default_timezone_set('Asia/Jakarta');
+            return date('my')."-".$kd;
+        }
+
+        public function insert_data_map($tabel,$data) {  
+            $this->db2->insert($tabel,$data);
+        }
+
+        public function getvieweditmap($idmap) {
+            $query = "select * from  document_map where idmap='".$idmap."'";
+            $data = $this->db2->query($query)->row();
+            return $data;
+        }
+
+        public function update_data_map($tabel,$data,$id) {  
+            $this->db2->where('idmap',$id);  
+            $this->db2->update($tabel,$data);
+        }
+
+        
+
+    // end maps
+
+    // video
+    public function viewsvideo($id_video) {
+        $query = "select * from  document_video order by id_video desc limit 2";
+        $data = $this->db2->query($query)->result();
+        return $data;
+    }
+    // end video
 
     public function get_searcmpk_restrukturisasi($userid) {
         $select = "select * from bss_employee as a join t_dep_head  as b on a.nik = b.f_nik where a.nik = '" . $userid . "'";
