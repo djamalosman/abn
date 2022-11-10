@@ -58,7 +58,7 @@ $route['homeadmin']='menu/home';
 $route['loginadmin']='menu/process_login';
 $route['v_loginadmin']='menu/index';
 
-
+$route['c_welcome']='C_welcome/index';
 // new link view
 $route['home']='Home/index';
 $route['news']='News/index';
@@ -69,6 +69,13 @@ $route['sk']='Sk/index';
     /* Create New Link */
         $route['welcomeadmin']='welcome/vdata';
         $route['welcomecreate']='welcome/vcrtwelcome';
+
+        $route['homeadmin']='home/homevdata';
+
+        $route["mapadmin"]='map/index';
+        $route['mapcreate']='map/vcrtmap';
+        $route['mapedit']='map/editmap';
+        $route['mapdelete']='map/deletemap';
     /* end Create New Link */
 //end new link
 
@@ -91,3 +98,4 @@ $route['video_v']='Create_document_video/index';
 $route['data_news']='Create_document/v_all_doc_news';
 $route['data_opini']='Create_document_opini/v_all_doc_opini';
 $route['data_agenda']='Create_document_agenda/v_all_doc_agenda';
+

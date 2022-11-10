@@ -22,7 +22,7 @@ class Welcome extends CI_Controller {
      	$this->load->view('welcome',$result);
 	}
 
-	//create
+	//Admin
 	public function vdata(){
 		if ($this->session->has_userdata('username')) {
             $idmenu = 'H04';
@@ -31,10 +31,6 @@ class Welcome extends CI_Controller {
             if ($result1 == '1') {
                 $result['data'] = $this->Menu_model->loadMenu();
                 $result['pagename'] = 'Data Welcome';
-                //$ambilcif = $this->input->get('myCountry');
-                //$namacif = $ambilcif;
-                //$cifambil = explode("-", $namacif);
-                //$cif = $cifambil['0'];
                 $userid = $this->session->userdata('username');
                 $result['welcome'] = $this->Model_create_document->views_welcome();
                 $result['content'] = 'vwelcome';
