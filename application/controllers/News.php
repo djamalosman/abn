@@ -10,39 +10,26 @@ class News extends CI_Controller {
         $this->db2 = $this->load->database('second', true);
 		$this->load->helper(array('form', 'url'));
 		$this->load->model('Model_create_document', '', TRUE);
+		$this->load->model('Menu_model', '', TRUE);
+        $this->load->model('Content_model', '', TRUE);
+        $this->load->helper('captcha');
+        $this->load->helper('file');
 	}
 	public function index()
 	{
-	    // $data['modul'] = "welcome";
-		// $data['menu'] = "welcome";
-	// $field=$this->db2->list_fields('document_news');
-	// $id_news=$field[0];
-	//  $result['v_news'] = $this->Model_create_document->views_news_welcome($id_news);
-
-	//  $field=$this->db2->list_fields('document_opini');
-	//  $id_opini=$field[0];
-	//  $result['v_opini'] = $this->Model_create_document->views_opini_welcome($id_opini);
-
-	//  $field=$this->db2->list_fields('document_agenda');
-	//  $id_agenda=$field[0];
-	//  $result['v_agenda'] = $this->Model_create_document->views_agenda_welcome($id_agenda);
-
-	//  $field=$this->db2->list_fields('document_image');
-	//  $id_image=$field[0];
-	//  $result['v_image'] = $this->Model_create_document->views_image_welcome($id_image);
-
-	//  $field=$this->db2->list_fields('document_video');
-	//  $id_video=$field[0];
-	//  $result['v_video'] = $this->Model_create_document->views_video_welcome($id_video);
-	//  $result['v_about'] = $this->Model_create_document->views_about_welcome();
-
-	 //$this->load->view('home',$result);
-	//  $result['welcome'] =0;
-    //  $result['Home_c'] =0;
-	//  $result['Header'] =1;
-    //  $result['N_A'] =1;
-    // $this->load->view('templates/header',$result);
-     $this->load->view('news');
-    // $this->load->view('templates/home/footer');
+	
+		$field=$this->db2->list_fields('document_news');
+				$id_news=$field[0];
+	 			$result['berita'] = $this->Model_create_document->get_berita($id_news);
+                 $field=$this->db2->list_fields('document_video');
+                 $id_video=$field[0];
+                 $result['video'] = $this->Model_create_document->viewsvideo($id_video);
+                 $field=$this->db2->list_fields('document_image');
+                 $id_image=$field[0];
+                 $result['v_image'] = $this->Model_create_document->views_image_bankfoto($id_image);
+                 $result['map'] = $this->Model_create_document->getmapdata();
+		$result['foto'] = $this->Model_create_document->views_beranda();
+     	$this->load->view('news',$result);
+    
 	}
 }

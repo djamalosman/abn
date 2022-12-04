@@ -6,12 +6,13 @@
   <meta name="viewport" content="width=device-width, initial scale=1.0" />
   <meta http-equiv="X/UA-Compatible" content="ie=edge" />
   <title> Akademi Bela Negara NasDem</title>
+  <link rel="shortcut icon" href="<?php echo base_url("template/images/favicon.ico") ?>">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/style2.css">
-  <link href="icon/css/all.css" rel="stylesheet">
-  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="<?php echo base_url ('assets/pago/css/index.css')?>">
+  <link rel="stylesheet" href="<?php echo base_url ('assets/pago/css/style2.css')?>">
+  <link href="<?php echo base_url ('assets/pago/icon/css/all.css')?>" rel="stylesheet">
+  <link href="<?php echo base_url ('assets/pago/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
     integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
     crossorigin="" />
@@ -32,24 +33,24 @@
 <body>
     <nav>
       <div class="btn-add" type="none">
-        <a href="index.html" target="_self">
-          <img src="img/logo_abn.png" alt="Logo ABN NasDem">
+        <a href="<?php echo base_url('Welcome/Index') ?>" target="_self">
+          <img src="<?php echo base_url ('assets/pago/img/logo_abn.png')?>" alt="Logo ABN NasDem">
         </a>
       </div>
       <div>
         <ul type="none">
-          <li><a href="home.html">Beranda</a></li>
-          <li><a href="news.html">Berita</a></li>
+          <li><a href="<?php echo base_url('Home/Index') ?>">Beranda</a></li>
+          <li><a href="<?php echo base_url('News/Index') ?>">Berita</a></li>
           <li class="dropdown"><a href="#">Program</a>
             <ul class="dropdown-content">
-              <li><a href="sk.html">Sekolah Kader</a></li>
-              <li><a href="news.html">Sekolah Legislatif</a></li>
-              <li><a href="news.html">Kerja Politik Kader</a></li>
+              <li><a href="<?php echo base_url('Sk/Index') ?>">Sekolah Kader</a></li>
+              <li><a href="#">Sekolah Legislatif</a></li>
+              <li><a href="#">Kerja sama </a></li>
             </ul>
           </li>
-          <li><a href="radio.html">Radio</a></li>
+          <li><a href="<?php echo base_url('Radio/Index') ?>">Radio</a></li>
           <li><a href="http://rakartini.abn-nasdem.com/" target="_blank">Perpustakaan</a></li>
-          <li><a href="about.html">Info Publik</a></li>
+          <li><a href="<?php echo base_url('About/Index') ?>">Info Publik</a></li>
         </ul>
       </div>
 
@@ -64,13 +65,13 @@
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="img/1.jpg" class="d-block w-100" alt="...">
+        <img src="<?php echo base_url ('assets/pago/img/1.jpg')?>" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="img/2.jpg" class="d-block w-100" alt="...">
+        <img src="<?php echo base_url ('assets/pago/img/2.jpg')?>" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="img/3.jpg" class="d-block w-100" alt="...">
+        <img src="<?php echo base_url ('assets/pago/img/3.jpg')?>" class="d-block w-100" alt="...">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -133,34 +134,8 @@
     <p id="pInFooter">Copyright © 2022 ABN NasDem</p>
     
   </footer>
-  <script>
-    var map = L.map('map').setView([-6.246849, 106.846596], 10);
-
-    var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-
-    var marker = L.marker([-6.246849, 106.846596]).addTo(map)
-      .bindPopup('<b>Petani NasDem</b><br />Lokasi Pertanian Kedelai.').openPopup();
-
-
-    var popup = L.popup()
-      .setLatLng([-6.246849, 106.846596])
-      .setContent('Lokasi Petani NasDem.')
-      .openOn(map);
-
-    function onMapClick(e) {
-      popup
-        .setLatLng(e.latlng)
-        .setContent('You clicked the map at ' + e.latlng.toString())
-        .openOn(map);
-    }
-
-    map.on('click', onMapClick);
-
-  </script>
-  <script src="css/script.js"></script>
+ 
+  <script src="<?php echo base_url ('assets/pago/css/script.js')?>"></script>
   <script type="text/ javascript" src="js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
