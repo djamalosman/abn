@@ -28,7 +28,7 @@
   }
   
     nav .logo {
-      font-family: poppins;
+      font-family: "poppins";
       letter-spacing: 3px;
   }
   
@@ -87,7 +87,6 @@
   }
   
   /* Hamburger Menu Animation */
-  
   .menu-toggle span:nth-child(2) {
     transform-origin: 0 0;
   }
@@ -95,7 +94,7 @@
   .menu-toggle span:nth-child(4) {
     transform-origin: 0 100%;
   }
-
+  
   .menu-toggle input:checked ~ span:nth-child(2) {
     background-color: white;
     transform: rotate(45deg) translate(-4px, -4px);
@@ -114,7 +113,6 @@
     opacity: 0;
     transform: scale(0);
   }
-  
   
   /* end nav bar */
   /* dropdown Program */
@@ -145,71 +143,125 @@
   
   /*dropdown Program */
   
-  /* search */
-  #search {
-    position: relative;
-    margin-right: 15px;
-    margin-top: 70px;
-    margin-bottom: 30px;
-    align-items: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
+  /* isi-berita*/
+  .isi-berita {
+    margin: 20px 150px ;
+    text-align: left;
+    font-size: 16px;
   }
-  
-  #search-input {
-    position: absolute;
-    /* right: 30px;
-    top: 20px; */
-    margin-bottom: 10;
-    justify-content: end;
-  }
-  .search-field {
-    margin-right: 10px;
-    margin-top: 0px;
-    background-color: #ebf2fa;
-    border: 0.8px solid #0d49d4;
-    border-radius: 25px;
-  }
-  
-  .search-field:hover {
-    background: #dfe0e0;
-    cursor: pointer;
-  }
-  .search-input {
-    background: #07112d;
-    padding: 30px;
-  }
-  
-  .topik {
-    width: 200px;
-  }
-  .berita {
-    width: 400px;
-  }
-  
-  .button-search {
-    position: relative;
-  }
-  
-  #search-input2 {
-    display: none;
+  @media screen and (max-width: 780px) {
+    .isi-berita {
+      margin: 10px 10px ;
+      text-align: left;
+      font-size: 16px;
+    }
     
   }
-  .search-field {
-    width: 700px;
-    height: 40px;
-  }
-  
-  ::placeholder {
-    text-align: center;
-  }
-  /* end search */
-  /* New button */
-  
-  
-  /* From uiverse.io */
+  /* isi-berita */
+
+/* share berita */
+.content {
+    padding: 8px 100px;
+    font-family: "poppins";
+}
+.content p {
+    line-height: 1.9;
+}
+
+.content img {
+    max-height: 500px;
+}
+/* end share berita */
+
+/* share buttons */
+/* .share-btn-container {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 42%;
+    transform: translateY(-50%);
+    border-radius: 50px;
+}
+
+.share-btn-container a {
+    margin: 12px 0;
+    transition: 500ms;
+}
+.share-btn-container a:hover {
+    transform: scale(1.2);
+}
+
+.share-btn-container .fa-facebook {
+    color: #0541f6;
+}
+
+.share-btn-container .fa-whatsapp {
+    color: #22c505;
+}
+
+.share-btn-container .fa-twitter {
+    color: #0569f6;
+} */
+
+a.social-link {
+	display:inline;
+	background-color: #aaa;
+	color:#fff !important;
+	text-decoration:none;
+	padding:6px 12px;
+	margin: 0;
+	-webkit-transition: background 0.1s linear;
+	-moz-transition: background 0.1s linear;
+	-ms-transition: background 0.1s linear;
+	-o-transition: background 0.1s linear;
+	transition: background 0.1s linear;
+}
+a:hover.facebook {
+	background-color:#4a66b7;
+}
+a:hover.twitter {
+	background-color:#00acee;
+}
+a:hover.linkedin {
+	background-color:#1b86bc;
+}
+a:hover.gplus {
+	background-color:#dd4b38;
+}
+a:hover.email {
+	background-color:#ff9600;
+}
+/* end share buttons */
+
+/* media queries */
+
+@media (max-width: 550px) {
+    .content {
+        padding: 8px 32px;
+    }
+    .share-btn-container {
+        transform: unset;
+        left: 0;
+        width: 232px;
+        flex-direction: row;
+        box-shadow: 4px 0 8px rgba(0, 0, 0, 0.3);
+        padding: 16px 0;
+    }
+
+    .share-btn-container a {
+        margin: 0 32px;
+    }
+}
+
+
+
+
+
+/* end media queries */
+
   div a button span{
     align-items: center;
     display: flex;
@@ -282,7 +334,7 @@
     transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
     position: absolute;
     top: 0;
-    left: 0;
+    left: 20px;
     right: 0;
     bottom: 0;
     padding: 0.75rem 0;
@@ -317,8 +369,12 @@
   .img-size {
     width: 40px;
   }
-  /* btn add new */
   
+  .btn-next {
+    display: flex;
+    justify-content: center;
+  }
+  /* btn add new */
   
   
   
@@ -330,7 +386,7 @@
   .btn-floating {
     position: relative;
     margin: auto;
-    margin-top: 120px;
+    margin-top: 20px;
     /* margin-bottom: 10px; */
     overflow: hidden;
     width: 60px;
@@ -429,7 +485,7 @@
     margin-bottom: 10px;
     padding: 1px;
     text-align: center;
-    font-size: 20px;
+    font-size: 32px;
   }
   
   main {
@@ -437,23 +493,31 @@
     /* background-color: #050f4a; */
     background-size: 100% 100%;
     /* background-attachment: fixed; */
-    background-repeat: repeat;
-    padding: 10px;
+    background-repeat:repeat-y;
+    padding-top: 100px;
+  }
+
+  .img-detilberita {
+    display: flex;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    /* position: ; */
   }
   
   h1 {
     text-align: center;
-    font-family: poppins;
+    font-family: "poppins";
   }
   
   h1:hover {
-    font-family: poppins;
+    font-family: "poppins";
     font-size: 36px;
     transition: 1s;
   }
   
   h2 {
-    font-family: poppins;
+    font-family: "poppins";
     text-align: left;
     font-size: 20px;
     color: rgb(247, 149, 22);
@@ -461,17 +525,17 @@
   
   h3 {
     color: rgb(247, 149, 22);
-    font-family: poppins;
+    font-family: "poppins";
   }
   h4 {
     font-size: 30px;
     text-align: center;
-    font-family: poppins;
+    font-family: "poppins";
   }
   p {
     text-align: justify;
-    font-family: poppins;
-    font-size: 20px;
+    font-family: "poppins";
+    font-size: 14px;
   }
   
   span {
@@ -483,7 +547,7 @@
   }
   
   table {
-    font-family: poppins;
+    font-family: "poppins";
     margin: auto;
     text-align: center;
   }
@@ -503,8 +567,7 @@
     width: 100px;
   }
   
-  li,
-  a {
+  li,a {
     font-family: "poppins";
     font-size: 14px;
     color: white;
@@ -546,15 +609,15 @@
   } */
   
   .box {
-    width: 100px;
-    margin: 0 20px;
+    width: 200px;
+    margin: 0 10px;
     box-shadow: 0 0 20px 2px rgb(0, 0, 0, 0.1);
     transition: 1s;
   }
   .box img {
     display: block;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 5px;
   }
   
   .box:hover {
@@ -583,13 +646,13 @@
     background-color: none;
     color: rgb(9, 10, 12);
     width: 100%;
-    border: 3px solid rgb(161, 162, 167);
+    border: 1px solid rgb(254, 254, 254);
     border-radius: 20px;
   }
   #imgTestimoni {
     float: left;
-    height: 300px;
-    width: 450px;
+    height: 260px;
+    width: 370px;
     margin-right: 10px;
     margin-left: 10px;
     margin-top: -25px;
@@ -614,14 +677,14 @@
   }
   
   #h2Testimoni {
-    font-family: poppins;
+    font-family: "poppins";
     text-align: left;
     font-size: 30px;
   }
   #pTesti {
-    font-family: poppins;
+    font-family: "poppins";
     font-size: 14px;
-    color: rgb(8, 7, 7);
+    color: rgb(255, 255, 255);
   }
   
   #pTesti2 {
@@ -637,7 +700,7 @@
     text-align: center;
     color: grey;
     font-size: 14px;
-    font-family: poppins;
+    font-family: "poppins";
     margin-top: 10px;
   }
   
@@ -665,7 +728,7 @@
   a:hover {
     color: #ffd830;
     /* font-size: 20px; */
-    font-family: poppins;
+    font-family: "poppins";
   }
   
   .yt-container {
@@ -698,7 +761,7 @@
     z-index: 1;
   }
   .h2-yt {
-    font-family: poppins;
+    font-family: "poppins";
     text-align: center;
     font-size: 20px;
     color: #1b2e5c;
@@ -796,9 +859,161 @@
   .wrapper .youtube:hover .tooltip::before {
     background: #d92215;
   }
-  
+  .wrapper .youtube:hover span,
+  .wrapper .youtube:hover .tooltip,
+  .wrapper .youtube:hover .tooltip::before {
+    background: #d92215;
+  }
   /* Responsive Breakpoin */
-  
+  .resp-sharing {
+    font-size:0
+  }
+  .resp-sharing-button__link,
+  .resp-sharing-button__icon {
+    display: inline-block;
+    transition: all .2s ease-in-out;
+  }
+  .resp-sharing-more-content {
+    display: block;
+  }
+  .clear{
+    clear: both;
+    display: block;
+  }
+  .resp-sharing-button__link {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 5px 5px 0;
+  }
+  .resp-sharing-button {
+    border-radius: 16px;
+    transition: 25ms ease-out;
+    padding: 0.65em 1em 0.65em 0.75em;
+    font-family:-apple-system,BlinkMacSystemFont,"Roboto","Segoe UI","Oxygen-Sans","Ubuntu","Cantarell","Helvetica Neue",sans-serif;
+    font-size:12px;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+  }
+  .resp-sharing-button__link:hover {
+    transform: translateY(-2px);
+  }
+  .resp-sharing-button__icon svg {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.4em;
+    vertical-align: top
+  }
+  .resp-sharing-button svg path{
+    fill: #fff;
+  }
+  .resp-sharing-button--twitter,.resp-sharing-button--messenger,.resp-sharing-button--linkbtn {
+    background-color: #1da1f2
+  }
+  .resp-sharing-button--twitter:hover,.resp-sharing-button--messenger:hover,.resp-sharing-button--linkbtn:hover {
+    background-color: #0288D1
+  }
+  .resp-sharing-button--pinterest {
+    background-color: #bd081c
+  }
+  .resp-sharing-button--pinterest:hover {
+    background-color: #8c0615
+  }
+  .resp-sharing-button--facebook {
+    background-color: #3b5998
+  }
+  .resp-sharing-button--facebook:hover {
+    background-color: #2d4373
+  }
+  .resp-sharing-button--tumblr {
+    background-color: #35465C
+  }
+  .resp-sharing-button--tumblr:hover {
+    background-color: #222d3c
+  }
+  .resp-sharing-button--mix,.resp-sharing-button--okru {
+    background-color: #ff8226
+  }
+  .resp-sharing-button--mix:hover,.resp-sharing-button--okru:hover {
+    background-color: #FF6F00
+  }
+  .resp-sharing-button--reddit {
+    background-color: #ff4500
+  }
+  .resp-sharing-button--reddit:hover {
+    background-color: #BF360C
+  }
+  .resp-sharing-button--linkedin {
+    background-color: #0077b5
+  }
+  .resp-sharing-button--linkedin:hover {
+    background-color: #046293
+  }
+  .resp-sharing-button--email {
+    background-color: #777
+  }
+  .resp-sharing-button--email:hover {
+    background-color: #5e5e5e
+  }
+  .resp-sharing-button--gmail {
+    background-color: #d93025
+  }
+  .resp-sharing-button--gmail:hover {
+    background-color: #D50000
+  }
+  .resp-sharing-button--xing {
+    background-color: #1a7576
+  }
+  .resp-sharing-button--xing:hover {
+    background-color: #114c4c
+  }
+  .resp-sharing-button--whatsapp,.resp-sharing-button--line {
+    background-color: #25D366
+  }
+  .resp-sharing-button--whatsapp:hover,.resp-sharing-button--line:hover {
+    background-color: #1da851
+  }
+  .resp-sharing-button--hackernews,.resp-sharing-button--more {
+  background-color: #FF6600
+  }
+  .resp-sharing-button--hackernews:hover,.resp-sharing-button--more:hover {
+    background-color: #FB6200
+  }
+  .resp-sharing-button--vk {
+    background-color: #507299
+  }
+  .resp-sharing-button--vk:hover {
+    background-color: #43648c
+  }
+  .resp-sharing-button--telegram {
+    background-color: #54A9EB;
+  }
+  .resp-sharing-button--telegram:hover {
+    background-color: #4B97D1;
+  }
+  #share_more,
+  #min-share {
+    display:none
+  }
+  .resp-sharing-button--more{cursor:pointer;}
+  @media screen and (max-width:375px){
+  .resp-sharing-button__link span{
+  display: none;
+  }
+  .resp-sharing-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 0.85em;
+    text-align:center
+    }
+  .resp-sharing-button__icon svg {
+    width: 1.4em;
+    height: 1.4em;
+    margin-right:0;
+    vertical-align:-7px
+  }
+  }
   /* ukuran tablet */
   
   .typing::before {
@@ -855,12 +1070,11 @@
     color: hsl(228, 75%, 13%);
     font-size: 36px;
     font-weight: bold;
-    font-family: poppins;
+    font-family: "poppins";
     letter-spacing: 7px;
     cursor: pointer;
     text-transform: uppercase;
     text-align: center;
-    margin-top: 50px;
   }
   
   .animasi {
@@ -921,7 +1135,7 @@
     background-color: rgb(24, 37, 63);
     color: rgb(9, 10, 12);
     width: 100%;
-    border: 3px solid rgb(24, 37, 63);
+    border: 1px solid rgb(24, 37, 63);
     border-radius: 20px;
   }
   
@@ -931,14 +1145,9 @@
     font-size: 30px;
   }
   #pTesti {
-    font-family: poppins;
+    font-family: "poppins";
     font-size: 14px;
     color: rgb(255, 255, 255);
-  }
-  #pTesti1 {
-    font-family: poppins;
-    font-size: 14px;
-    color: rgb(4, 2, 2);
   }
   
   #pTesti2 {
@@ -970,7 +1179,7 @@
   
   h1 {
     text-align: center;
-    font-family: poppins;
+    font-family: "poppins";
   }
   
   /* end visi misi */
@@ -984,7 +1193,16 @@
   }
   /* end footer */
   
+  /*peta opazaky */
   
+  .opazaky {
+    position: absolute;
+    margin-top: 80px;
+    float: right;
+    right: -50px;
+    width: 500px;
+    margin-left: 100px;
+  }
   
   .carousel-video {
     display: flex; 

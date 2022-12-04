@@ -5,9 +5,20 @@
   .opazaky {
     display: none;
   }
-
+  .p-berita {
+    margin: 20px 20px;
+    font-size: 16px;
+  }
+  .img-detilberita {
+    display: flex;
+    width: 392px;
+    height: auto;
+    align-items: center;
+    padding: 20px;
+  }
   
 }
+
 
 @media screen and (max-width: 900px) {
   /* Footer Icon */
@@ -43,7 +54,10 @@
     position: relative;
     }
   
-
+    .p-berita {
+      margin: 20px 20px;
+      font-size: 16px;
+    }
   nav ul {
     position: absolute;
     right: -50px;
@@ -310,7 +324,7 @@ text-align: center;
 
 /* end to top button */
 
-@media (max-width: 330px) {
+@media (max-width: 390px) {
   .typing h2 {
     font-size: 3rem;
     animation: type 5s steps(10) infinite;
