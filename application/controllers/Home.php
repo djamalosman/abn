@@ -31,6 +31,23 @@ class Home extends CI_Controller {
      $this->load->view('beranda',$result);
 	}
 
+    // detail berita
+
+    public function DetailNews($newsdata)
+	{
+        $nama = $newsdata;
+        $ambil = explode("-", $nama);
+        $codeimage = $ambil['0'];
+        $id_news = $ambil['1'];
+        //print_r($codeimage);
+        //print_r($id_news);
+		// $data['modul'] = "welcome";
+		// $data['menu'] = "welcome";
+        $result['v_one_news'] = $this->Model_create_document->v_one_doc_news_row($codeimage,$id_news);
+        $result['v_news'] = $this->Model_create_document->v_one_doc_news_result($codeimage,$id_news);
+		$this->load->view('DetailBerita',$result);
+	}
+
 	//Admin
 	public function homevdata(){
 		if ($this->session->has_userdata('username')) {

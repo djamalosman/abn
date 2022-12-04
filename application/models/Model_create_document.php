@@ -185,7 +185,7 @@ class Model_create_document extends CI_Model {
         return $data;
     }
     public function v_one_doc_news_result($codeimage,$id_news) {
-        $query = "select *,id_docnews,code_image from document_news order by '".$id_news."' desc limit 4 ";
+        $query = "select *,id_docnews,code_image from document_news order by '".$id_news."' desc limit 3 ";
         $data = $this->db2->query($query)->result();
         return $data;
     }        

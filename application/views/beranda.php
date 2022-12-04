@@ -128,7 +128,7 @@
                           <div class="col mb-5">
                             <div class="card h-100">
                              
-                                <a href="<?php echo base_url("C_one_doc_news/v_one_news/" . $item->code_image . '-' . $item->id_docnews) ?>">
+                                <a href="<?php echo base_url("DetailNews/" . $item->code_image . '-' . $item->id_docnews) ?>">
                                       <img src="<?php echo base_url('uploads/' . $item->file_content)?>" style="height:260px" class="card-img-top" alt="...">    
                                 </a>
                               <div class="card-body">
@@ -147,7 +147,7 @@
                                     
                                         //if the string doesn't contain any space then it will cut without word basis.
                                         $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                                        $string .= '... <a href="C_one_doc_news/v_one_news/'.$item->code_image."-".$item->id_docnews.'">Selengkapnya</a>';
+                                        $string .= '... <a href="DetailNews/'.$item->code_image."-".$item->id_docnews.'">Selengkapnya</a>';
                                     }
                                     echo $string; ?>
                                   </p>
@@ -267,6 +267,91 @@
             </div>
             <div>
               <div id="map" style="width: 800px; height: 500px;"></div>
+            </div>
+            <div style="margin-top: 10px;">
+              <h2 class="animasi"><b>Profil</b></h2>
+              <p class="liputan1"><span>Profil Gubernur, Settama dan Deeputi ABN NasDem</span></p>
+            </div>
+            <div>
+                <div class="containerr">
+                  <div class="cards-container">
+                    <div class="card-b">
+                      <div class="elms-animation">
+                        <span class="one"></span>
+                        <span class="two"></span>
+                        <span class="three"></span>
+                        <span class="four"></span>
+                      </div>
+                      <img src="<?php echo base_url ('assets/pago/img/profil_opa.jpg')?>" alt=""/>
+                      <div class="content">
+                        <h2 class="jabatan">Mayjen TNI (Purn) Dr. IGK Manila. S.I.P</h2>
+                      </div>
+                      <div class="content">
+                        <h3 class="pc">Gubernur ABN</h3>
+                      </div>
+                    </div>
+                    <div class="card-b">
+                      <div class="elms-animation">
+                        <span class="one"></span>
+                        <span class="two"></span>
+                        <span class="three"></span>
+                        <span class="four"></span>
+                      </div>
+                      <img src="<?php echo base_url ('assets/pago/img/settama.jpg')?>" alt=""/>
+                      <div class="content">
+                        <h2 class="jabatan">Eusebio Hornai Rebello</h2>
+                      </div>
+                      <div class="content">
+                        <h3 class="pc">Settama</h3>
+                      </div>
+                    </div>
+                    <div class="card-b">
+                      <div class="elms-animation">
+                        <span class="one"></span>
+                        <span class="two"></span>
+                        <span class="three"></span>
+                        <span class="four"></span>
+                      </div>
+                      <img src="<?php echo base_url ('assets/pago/img/deputi1.jpg')?>" alt=""/>
+                      <div class="content">
+                        <h2 class="jabatan">Ahmad Baedhowi AR</h2>
+                      </div>
+                      <div class="content">
+                        <h3 class="pc">Deputi I</h3>
+                      </div>
+                    </div>
+                    <div class="card-b">
+                      <div class="elms-animation">
+                        <span class="one"></span>
+                        <span class="two"></span>
+                        <span class="three"></span>
+                        <span class="four"></span>
+                      </div>
+                      <img src="<?php echo base_url ('assets/pago/img/deputi2.jpg')?>" alt=""/>
+                      <div class="content">
+                        <h2 class="jabatan">Damianus Bilo SH, M.Hum</h2>
+                      </div>
+                      <div class="content">
+                        <h3 class="pc">Deputi II</h3>
+                      </div>
+                    </div>
+                    <div class="card-b">
+                      <div class="elms-animation">
+                        <span class="one"></span>
+                        <span class="two"></span>
+                        <span class="three"></span>
+                        <span class="four"></span>
+                      </div>
+                      <img src="<?php echo base_url ('assets/pago/img/deputi3.jpg')?>" alt=""/>
+                      <div class="content">
+                        <h2 class="jabatan">Sandra Kirana Kastor</h2>
+                      </div>
+                      <div class="content">
+                        <h3 class="pc">Deputi III</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
             <div class="animasi"><b>Akademi Bela Negara NasDem</b></div>
             <div id="testi2">

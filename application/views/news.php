@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial scale=1.0" />
   <meta http-equiv="X/UA-Compatible" content="ie=edge" />
   <title> Akademi Bela Negara NasDem</title>
+  
   <link rel="shortcut icon" href="<?php echo base_url("template/images/favicon.ico") ?>">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins&display=swap"
     rel="stylesheet">
@@ -99,110 +100,48 @@
           <div class="animasi"><b>Berita Terkini</b></div>
           <p class="liputan1">Berita terkini Akademi Bela Negara NasDem dan Partai NasDem </p>
           <div id="section">
-            <section id="card">
-              <div class="container">
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                  <div class="col mb-5">
-                    <div class="card h-100">
-                      <img src="<?php echo base_url ('assets/pago/img/IMG_5554.JPG')?>" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">News ABN</h5>
-                        <p class="card-text">GUBERNUR Akademi Bela Negara (ABN) NasDem IGK Manila sangat mengapresiasi aksi
-                          panen perdana jagung hibrida
-                          yang digagas Ketua Dewan Pakar NasDem Sukabumi Ayep Zaki.Opa Manila..</p>
-                      </div>
-                      <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col mb-5">
-                    <div class="card h-100 text-center">
-                      <img src="<?php echo base_url ('assets/pago/img/IMG_5599.JPG')?>" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">News ABN</h5>
-                        <p class="card-text">DPP Partai NasDem bekerja sama dengan Akademi Bela Negara NasDem menyerahkan
-                          hewan kurban
-                          kepada masjid dan panti asuhan daerah Jakarta Selatan untuk disembelih pada Hari Raya Idul adha..
-                        </p>
-                      </div>
-                      <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col mb-5">
-                    <div class="card h-100 text-end">
-                      <img src="<?php echo base_url ('assets/pago/img/IMG_9941.JPG')?>" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h5 class="card-title">News ABN</h5>
-                        <p class="card-text">Sebanyak 60 orang kader partai NasDem mengikuti Pendidikan Politik atau Dikpol
-                          dengan tajuk Desain Roadmap Pemenangan NasDem 2024 berbasis Struktur Partai.</p>
-                      </div>
-                      <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-          </div>
-          </div>
-          <!-- <div id="liputan"></div>
-          <div class="animasi"><b>Berita Terkini</b></div>
-          <p class="liputan1">Berita terkini Akademi Bela Negara NasDem dan Partai NasDem </p> -->
-                  <div id="section">
-                      <section id="card">
-                          <div class="container">
-                          <div class="row row-cols-1 row-cols-md-3 g-4">
-                              <div class="col mb-5">
-                              <div class="card h-100">
-                                  <img src="<?php echo base_url ('assets/pago/img/IMG_5554.JPG')?>" class="card-img-top" alt="...">
-                                  <div class="card-body">
-                                  <h5 class="card-title">News ABN</h5>
-                                  <p class="card-text">GUBERNUR Akademi Bela Negara (ABN) NasDem IGK Manila sangat mengapresiasi aksi
-                                      panen perdana jagung hibrida
-                                      yang digagas Ketua Dewan Pakar NasDem Sukabumi Ayep Zaki.Opa Manila..</p>
-                                  </div>
-                                  <div class="card-footer">
-                                  <small class="text-muted">Last updated 3 mins ago</small>
-                                  </div>
-                              </div>
-                              </div>
-                              <div class="col mb-5">
-                              <div class="card h-100 text-center">
-                                  <img src="<?php echo base_url ('assets/pago/img/IMG_5599.JPG')?>" class="card-img-top" alt="...">
-                                  <div class="card-body">
-                                  <h5 class="card-title">News ABN</h5>
-                                  <p class="card-text">DPP Partai NasDem bekerja sama dengan Akademi Bela Negara NasDem menyerahkan
-                                      hewan kurban
-                                      kepada masjid dan panti asuhan daerah Jakarta Selatan untuk disembelih pada Hari Raya Idul adha..
+                <section id="card">
+                  <div class="container">
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                      <?php foreach($berita as $item){ ?>  
+                          <div class="col mb-5">
+                            <div class="card h-100">
+                             
+                                <a href="<?php echo base_url("DetailNews/" . $item->code_image . '-' . $item->id_docnews) ?>">
+                                      <img src="<?php echo base_url('uploads/' . $item->file_content)?>" style="height:260px" class="card-img-top" alt="...">    
+                                </a>
+                              <div class="card-body">
+                                
+                                  <h6 class="card-title" ><?php echo $item->judul; ?></h6>
+
+                                  <p class="card-text" style="text-align: left;">
+                                    
+                                    <?php 
+                                    $string = strip_tags($item->description);
+                                    if (strlen($string) > 500) {
+                                    
+                                        // truncate string
+                                        $stringCut = substr($string, 0, 500);
+                                        $endPoint = strrpos($stringCut, ' ');
+                                    
+                                        //if the string doesn't contain any space then it will cut without word basis.
+                                        $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                                        $string .= '... <a href="DetailNews/'.$item->code_image."-".$item->id_docnews.'">Selengkapnya</a>';
+                                    }
+                                    echo $string; ?>
                                   </p>
-                                  </div>
-                                  <div class="card-footer">
-                                  <small class="text-muted">Last updated 3 mins ago</small>
-                                  </div>
                               </div>
+                              <div class="card-footer">
+                                <small class="text-muted"><i class="fa fa-calendar s16"></i>
+                                                   <?php echo $item->tanggal_insert ?></small>
                               </div>
-                              <div class="col mb-5">
-                              <div class="card h-100 text-end">
-                                  <img src="<?php echo base_url ('assets/pago/img/IMG_9941.JPG')?>" class="card-img-top" alt="...">
-                                  <div class="card-body">
-                                  <h5 class="card-title">News ABN</h5>
-                                  <p class="card-text">Sebanyak 60 orang kader partai NasDem mengikuti Pendidikan Politik atau Dikpol
-                                      dengan tajuk Desain Roadmap Pemenangan NasDem 2024 berbasis Struktur Partai.</p>
-                                  </div>
-                                  <div class="card-footer">
-                                  <small class="text-muted">Last updated 3 mins ago</small>
-                                  </div>
-                              </div>
-                              </div>
-                          </div>
-                          <!-- </div> -->
-                      </section>
+                            </div>
+                      </div>
+                      <?php  } ?> 
+                    </div>
                   </div>
+                </section>
+              </div>
           </div>
           </div>
           <!-- end berita -->
