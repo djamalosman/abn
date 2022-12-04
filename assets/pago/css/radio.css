@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-html {
-  /* line-height: 30px; */
-  scroll-behavior: smooth;
-}
 
 body {
   overflow-x: hidden;
@@ -36,7 +32,6 @@ nav {
 }
 
 nav .logo {
-  font-family: poppins;
   letter-spacing: 3px;
 }
 
@@ -52,12 +47,13 @@ nav ul {
 nav ul li a {
   color: rgb(251, 253, 254);
   text-decoration: none;
-  font-size: 0, 8em;
+  font-size: 0,8em;
   margin-top: 10px;
 }
 
 nav ul li a:hover {
   color: rgb(247, 149, 22);
+  font-family: "poppins";
 }
 
 /* nav bar menu */
@@ -402,7 +398,7 @@ span {
 
 .btn-radio {
   display: absolute;
-  justify-content: center;
+  justify-content: end;
   background-color: rgb(8, 0, 255);
   align-items: center;
   border-radius: 20px;
@@ -486,7 +482,7 @@ span {
   color: hsl(228, 75%, 13%);
   font-size: 36px;
   font-weight: bold;
-  font-family: poppins;
+  font-family: "poppins";
   letter-spacing: 7px;
   cursor: pointer;
   text-transform: uppercase;
@@ -543,16 +539,16 @@ img {
   width: 100px;
 }
 
-footer {
+footer { 
   padding: 10px 50px;
-  margin-top: 50px;
+  margin-top: 0px;
   background-image: linear-gradient(#050f4a, #020716);
   background-size: 250px;
 }
 
 h3 {
   color: rgb(247, 149, 22);
-  font-family: poppins;
+  font-family: "poppins";
 }
 
 li,
@@ -567,7 +563,7 @@ a {
   text-align: center;
   color: grey;
   font-size: 14px;
-  font-family: poppins;
+  font-family: "poppins";
   margin-top: 10px;
 }
 
@@ -593,12 +589,12 @@ a {
 }
 
 #h2Testimoni {
-  font-family: poppins;
+  font-family: "poppins";
   text-align: left;
   font-size: 30px;
 }
 #pTesti {
-  font-family: poppins;
+  font-family: "poppins";
   font-size: 14px;
   color: rgb(255, 255, 255);
 }
@@ -616,7 +612,7 @@ a {
   text-align: center;
   color: grey;
   font-size: 14px;
-  font-family: poppins;
+  font-family: "poppins";
   margin-top: 10px;
 }
 
