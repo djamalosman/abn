@@ -48,6 +48,7 @@
         <meta name="description" content="" />
         <meta name="keywords" content="" />
         <meta name="application-name" content="" />
+        <link rel="shortcut icon" href="<?php echo base_url("template/images/favicon.ico") ?>">
         <!-- Import google fonts - Heading first/ text second -->
         
         <!-- Css files -->

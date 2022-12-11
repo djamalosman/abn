@@ -9,6 +9,7 @@
               <link rel="shortcut icon" href="<?php echo base_url("template/images/favicon.ico") ?>">
               <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins&display=swap"
                 rel="stylesheet">
+                <link rel="shortcut icon" href="<?php echo base_url("template/images/favicon.ico") ?>">
               <link rel="stylesheet" href="<?php echo base_url('assets/pago/css/style1.css') ?>">
               <link rel="stylesheet" href="<?php echo base_url('assets/pago/css/style2.css') ?>">
               <link href="<?php echo base_url('assets/pago/icon/css/all.css') ?>" rel="stylesheet">
@@ -134,7 +135,7 @@
                 <img src="<?php echo base_url ('assets/pago/img/BIODATA.png')?>">
               </div>
               <div class="box">
-                <a href="galery.html">
+                <a href="<?php echo base_url('Gallery/Index') ?>">
                   <img src="<?php echo base_url ('assets/pago/img/GALERY.png')?>">
                 </a>
               </div>
@@ -259,35 +260,7 @@
         <p id="pInFooter">Copyright © 2022 ABN NasDem</p>
         
       </footer>
-      <!-- <script>
-        var map = L.map('map').setView([-6.246849, 106.846596], 10);
-
-        var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 19,
-          attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
-
-        var marker = L.marker([-6.246849, 106.846596]).addTo(map)
-          .bindPopup('<b>Petani NasDem</b><br />Lokasi Pertanian Kedelai.').openPopup();
-
-
-
-
-        var popup = L.popup()
-          .setLatLng([-6.246849, 106.846596])
-          .setContent('Lokasi Petani NasDem.')
-          .openOn(map);
-
-        function onMapClick(e) {
-          popup
-            .setLatLng(e.latlng)
-            .setContent('You clicked the map at ' + e.latlng.toString())
-            .openOn(map);
-        }
-
-        map.on('click', onMapClick);
-
-      </script> -->
+      
       <script src="<?php echo base_url ('assets/pago/css/script.js')?>"></script>
       <script type="text/ javascript" src="<?php echo base_url ('assets/pago/js/bootstrap.min.js')?>"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"

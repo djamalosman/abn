@@ -39,7 +39,6 @@
                 height: auto;
             }
         </style>
-        
     </head>
     <body>
 
@@ -53,7 +52,7 @@
                     <div class="panel-body">
                         <div class="row profile">
                             <div class="panel-body">
-                                <form action="<?php echo base_url('Create_document_image/insert_Imagedelete'); ?>" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo base_url('Create_document_image/update_Imagedelete'); ?>" method="post" enctype="multipart/form-data">
                                     <div class="row clearfix" >
                                         <div class="col-lg-12" >
                                            
@@ -62,33 +61,18 @@
                                                 <div class="form-group">
                                                     <div class="form-line">
                                                         <input type="file" multiple="multiple"  id="myfile" class="form-control" name="myfile[]">
+                                                        <input type="hidden"  value="<?php echo $fotoRow->nameFolder ?>"  class="form-control" name="namafolder">
+                                                        <input type="hidden"  value="<?php echo $fotoRow->idfolder ?>"  class="form-control" name="idfolder">
+                                                        <input type="hidden"  value="<?php echo $fotoRow->nama_Kegiatan ?>"  class="form-control" name="namakgtn">
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4 col-md-10 col-sm-8 col-xs-7" >
-                                                <label for="CIF">Nama Kegiatan </label>
-                                                <div class="form-group">
-                                                    
-                                                    <div class="form-line">
-                                                        <input type="text"  class="form-control" name="namakgtn" require>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-10 col-sm-8 col-xs-7" >
-                                                <label for="CIF">Nama Folder</label>
-                                                <div class="form-group">
-                                                
-                                                    <div class="form-line">
-                                                        <input type="text"  class="form-control" name="namafolder" require>
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                             <div class="col-lg-4 col-md-10 col-sm-8 col-xs-7">
                                                 <label for="CIF"></label>
                                                 <div class="form-group">
                                                     <div class="form-line">
-                                                        <button type="submit" name="update" id="insert"  style="background-color: #1f3983;" class="btn btn-success btn-sm mr5 mb10" ><i class="fa fa-plus"></i>  <span class="text"> insert</span></button>
+                                                        <button type="submit" name="update" id="insert"  style="background-color: #1f3983;" class="btn btn-success btn-sm mr5 mb10" ><i class="fa fa-trash"></i>  <span class="text"> insert</span></button>
+                                                        <button type="submit" name="delete" id="delete"  style="background-color: #1f3983;" class="btn btn-success btn-sm mr5 mb10" ><i class="fa fa-trash"></i>  <span class="text"> Delete</span></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -108,32 +92,48 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12">
-                        <table id="example" class="table table-striped table-bordered">
-                            <thead>
-                                <tr>	
-                                    
-                                    <th>Aksi</th>
-                                    <th>Nama Kegiatan</th>
-                                    <th>Nama Folder</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($imageviewTabel as $item) { ?>
-                                    <tr>
-                                        <td>
-                                            <a title="Fitur" target="blank" href="<?php echo base_url("Create_document_image/detailsImageTabel/" . $item->idfolder) ?>" >
-                                            <button type="button"   style="background-color: #1f3983;" class="btn btn-success btn-sm mr5 mb10" ><i class="fa fa-pencil"></i>  <span class="text"> update</span></button>
-                                            </a>
-                                        </td>
-                                        <td><?php echo $item->nama_Kegiatan ?></td>
-                                        <td><?php echo $item->nameFolder ?></td>
-                                    </tr>                            
-                                <?php } ?> 
-                            </tbody>
-                        </table> 
-                                    </div>
-                                    
+                                    <?php
+                                    if (!empty($fotoResult)) {
+                                        foreach ($fotoResult as $file) {
+                                            ?>
+                                            <div class="col-md-4">
+                                                <table id="responsive" class="table table-striped table-bordered data-server-side dataTable no-footer"style="overflow: hidden; width: 63%; height: auto;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>
+                                                                  <label></label>
+                                                                <div class="panel panel-default my_panel"style="width:204px; height:204px;">
+                                                                    
+                                                                    <div class="panel-body"style="width:204px; height:104px;">
+                                                                      
+                                                                        <a data-img = "<?php echo base_url('uploads/'.$file->nameFolder.'/'. $file->file_content); ?>" 
+                                                                           data-type = "<?php echo $file->type_file ?>" 
+                                                                           data-toggle = "modal" data-target="#modalimage">
+                                                                            <div class="image-wrapper"style="width:204px; height:204px;">
+                                                                                <img style="width:310px; height:204px;"  <?php
+                                                                                if ($file->type_file == $file->type_file) {
+                                                                                    echo 'src=' . base_url('uploads/'.$file->nameFolder.'/' . $file->file_content);
+                                                                                } else {
+                                                                                    echo 'src=' . base_url('gambar/image1.png');
+                                                                                }
+                                                                                ?>>
+                                                                            </div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <input type="checkbox" title="delete" value="<?php echo $file->file_content ?>" name="idnya[]"/>
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                                        <?php
+                                                    }
+                                                } else {
+                                                    ?>
+                                        <p>Image(s) not found.....</p>
+                                    <?php } ?>
+
                                     <div class="modal fade" id="modalimage" tabindex="-1" role="dialog" aria-hidden="true">
                                         <div class="modal-dialog modal-lg modal-dialog-center">
                                             <div class="modal-content" >
@@ -200,34 +200,22 @@
         <script src="<?php echo base_url('assets/jquery/jquery-2.2.3.min.js') ?>"></script>
         <script src="<?php echo base_url('assets/datatables/js/jquery.dataTables.min.js') ?>"></script>
         <script>
-                                                           $(document).ready(function () {
-                                                            $('#example').DataTable( {
-        "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-         columnDefs: [
-                {targets: 0, sortable: false},
-            ],
-            order: [[1, "asc"]]
-         //"scrollX": true,
-    } );
-                                                            $('#modalimage').on('show.bs.modal', function (event) {
-                                                                var div = $(event.relatedTarget); // Tombol dimana modal di tampilkan
-                                                                var modal = $(this);
+                $(document).ready(function () {
+                    
+                    $('#modalimage').on('show.bs.modal', function (event) {
+                        var div = $(event.relatedTarget); // Tombol dimana modal di tampilkan
+                        var modal = $(this);
 
-                                                                //console.log('masuk');
+                        //console.log('masuk');
 
-                                                                //alert(div.data('sp'));
+                        //alert(div.data('sp'));
 
-                                                                // Isi nilai pada field
-                                                                //            modal.find('#img1').attr(("data", div.data('img')),("type", div.data('type')));
-                                                                modal.find('#img1').attr("type", div.data('type'));
-                                                                modal.find('#img1').attr("data", div.data('img'));
-
-
-                                                            });
-                                                            
-                                                            
-                                                        });
-                                                        
+                        // Isi nilai pada field
+                        //            modal.find('#img1').attr(("data", div.data('img')),("type", div.data('type')));
+                        modal.find('#img1').attr("type", div.data('type'));
+                        modal.find('#img1').attr("data", div.data('img'));
+                    }); 
+                });                                        
         </script>
 
 

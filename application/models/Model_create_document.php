@@ -64,7 +64,6 @@ class Model_create_document extends CI_Model {
             return $data;
         }
     // end berita
-    
 
     // Bank Foto
         public function views_image_bankfoto($id_image) {
@@ -72,8 +71,10 @@ class Model_create_document extends CI_Model {
             $data = $this->db2->query($query)->result();
             return $data;
         }
-    //
 
+
+
+    //
 
     // maps
     
@@ -118,12 +119,64 @@ class Model_create_document extends CI_Model {
     // end maps
 
     // video
-    public function viewsvideo($id_video) {
-        $query = "select * from  document_video order by id_video desc limit 2";
-        $data = $this->db2->query($query)->result();
-        return $data;
-    }
+        public function viewsvideo($id_video) {
+            $query = "select * from  document_video order by id_video desc limit 2";
+            $data = $this->db2->query($query)->result();
+            return $data;
+        }
     // end video
+
+
+    // gallery
+        public function getidFolderimg() {
+            $query = "SELECT *
+            FROM folderimage   ORDER BY id desc limit 1  ";
+            $data = $this->db2->query($query)->row();
+            return $data;
+        }
+        public function getidFolderimgOne($idfolder) {
+            $query = "SELECT *
+            FROM folderimage where idfolder='".$idfolder."'  ORDER BY id desc limit 1  ";
+            $data = $this->db2->query($query)->row();
+            return $data;
+        }
+        public function getidFolderimgZip($idfolder) {
+            $query = "SELECT *
+            FROM folderimage where idfolder='".$idfolder."'  ORDER BY id desc limit 1  ";
+            $data = $this->db2->query($query)->row();
+            return $data;
+        }
+        public function views_image_bankfoto_one($idfolder) {
+            $query = "SELECT 
+            b.idfolder,b.file_content,b.type_file,b.nameFolder,b.nama_Kegiatan,a.nama_Kegiatan as judulkegiatan
+            FROM folderimage as a 
+            JOIN document_image b ON a.idfolder = b.idfolder where b.idfolder='".$idfolder."' order by b.f_datetimecreate desc limit 4 ";
+            $data = $this->db2->query($query)->result();
+            return $data;
+        }
+
+        public function getidFolderimgTwo($idfolder) {
+            $query = "SELECT *
+            FROM folderimage where idfolder !='".$idfolder."'  ORDER BY id desc limit 1  ";
+            $data = $this->db2->query($query)->row();
+            return $data;
+        }
+
+        public function views_image_bankfoto_two($idfolder) {
+            $query = "SELECT 
+            b.idfolder,b.file_content,b.type_file,b.nameFolder,b.nama_Kegiatan,a.nama_Kegiatan as judulkegiatan
+            FROM folderimage as a 
+            JOIN document_image b ON a.idfolder = b.idfolder where b.idfolder !='".$idfolder."' order by b.f_datetimecreate desc limit 4 ";
+            $data = $this->db2->query($query)->result();
+            return $data;
+        }
+
+        public function getConvertTozipImg () {
+            $query = "SELECT * FROM folderimage ";
+            $data = $this->db2->query($query)->row();
+            return $data;
+        }
+    //
 
     public function get_searcmpk_restrukturisasi($userid) {
         $select = "select * from bss_employee as a join t_dep_head  as b on a.nik = b.f_nik where a.nik = '" . $userid . "'";
@@ -137,7 +190,7 @@ class Model_create_document extends CI_Model {
         }
         return $data;
     }
-//area data news
+    //area data news
     public function views_news() {
         $query = "select * from  document_news ";
         $data = $this->db2->query($query)->result();
@@ -160,12 +213,8 @@ class Model_create_document extends CI_Model {
         return $data;
     }
     public function update_data_news($uploadData,$id_docnews) {  
-        //print_r($data);
-                // $updatedelet1=$this->db2->where('id_docnews', $id_docnews);
-                // $updatedelet1=$this->db2->delete('document_news');
-                // if($updatedelet1=TRUE){
-                    $this->db2->update_batch('document_news',$uploadData,'id_docnews');
-                //}
+        
+        $this->db2->update_batch('document_news',$uploadData,'id_docnews');
     }
     public function delete_data_news($code_image,$id) {
         $usulan_kredit=$this->db2->where('code_image',$code_image);
@@ -280,15 +329,9 @@ public function ambildata_edit_opini($codeimage,$id_agenda) {
     return $data;
 }
 public function update_data_opini($uploadData,$id_docagenda) {  
-     // print_r($id_docagenda);
-     // print_r($id_docagenda);
-    //print_r($data);
-            //$updatedelet1=$this->db2->where('id_docopini', $id_docagenda);
-            ////$updatedelet1=$this->db2->delete('document_opini');
-            //if($updatedelet1=TRUE){
-               // $this->db2->where('id_docopini', $id_docagenda);
+ 
                 $this->db2->update_batch('document_opini',$uploadData,'id_docopini');
-            //}
+         
 }
 public function delete_data_opini($code_image_opini,$id) {
     $usulan_kredit=$this->db2->where('code_image',$code_image_opini);
@@ -323,9 +366,14 @@ public function views_image() {
     $data = $this->db2->query($query)->result();
     return $data;
 }
-    public function insertimage($result) {
+    public function insertimage($result,$result2) {
         //var_dump($result);
-      $this->db2->insert_batch('document_image',$result);
+        $this->db2->insert_batch('folderimage',$result2);
+       $this->db2->insert_batch('document_image',$result);
+    }
+
+    public function updateimage($result) {
+       $this->db2->insert_batch('document_image',$result);
     }
      public function deleteimage($idnya) {
         foreach ($idnya as $item) {
@@ -334,19 +382,17 @@ public function views_image() {
         }
     }
 
-    //  public function views_image_welcome() {
-    //     $query = "select * from  document_image ";
-    //     $data = $this->db2->query($query)->result();
-    //     return $data;
-    // }
-    public function imageview() {
-        //var_dump($id);
-        //var_dump($cif);
-        //$data="SELECT b.file_content,b.cif,a.id_t_lelang,b.code FROM t_lelang AS a 
-        //JOIN t_image_lelang AS b on a.id_t_lelang= b.code
-        //WHERE a.id_t_lelang='".$id."' AND b.cif='".$cif."'";
-		$data="SELECT * FROM document_image ";
+    public function imageview($idfolder) {
+        
+		$data="SELECT 
+        b.idfolder,b.file_content,b.type_file,b.nameFolder,b.nama_Kegiatan
+        FROM folderimage as a 
+        JOIN document_image b ON a.idfolder = b.idfolder where b.idfolder='".$idfolder."' ";
        return $this->db2->query($data)->row();
+    }
+    public function imageviewtabel() {
+		$data="SELECT * FROM folderimage GROUP by idfolder ";
+        return $this->db2->query($data)->result();
     }
     public function views_image_welcome($id_image) {
         $query = "select * from  document_image order by id_image desc limit 6 ";
@@ -358,13 +404,52 @@ public function views_image() {
     $query = "select * from  document_image order by id_image desc ";
     $data = $this->db2->query($query)->result();
     return $data;
-}
+    }
     public function imagedeatil()
     {
         //var_dump($id);
         //var_dump($cif);
         $data="SELECT * FROM document_image";
         return $this->db2->query($data)->result();
+    }
+
+    public function countIdFolder($idfolder) {
+      
+        $this->db2->select('*');
+        $this->db2->from('folderimage');
+        $this->db2->where('idfolder', ''.$idfolder.'');
+        $data=$this->db2->count_all_results();
+        return $data;
+    }
+
+    public function deleteIdFolder($idfolder,$jum)
+    {
+        
+        $data="Delete FROM folderimage where idfolder='".$idfolder."' Limit ".$jum."";
+        return;
+    }
+
+    public function imagedeatilResult($idfolder) {
+        $query = "SELECT 
+        b.idfolder,b.file_content,b.type_file,b.nameFolder,b.nama_Kegiatan
+        FROM folderimage as a 
+        JOIN document_image b ON a.idfolder = b.idfolder where b.idfolder='".$idfolder."' ";
+        $data = $this->db2->query($query)->result();
+        return $data;
+    }
+
+    public function imagedeatilRow($idfolder) {
+        $query = "SELECT 
+        b.idfolder,b.file_content,b.type_file,b.nameFolder,b.nama_Kegiatan
+        FROM folderimage as a 
+        JOIN document_image b ON a.idfolder = b.idfolder where b.idfolder='".$idfolder."' ";
+        $data = $this->db2->query($query)->row();
+        return $data;
+    }
+    public function cekfolder($namafolder) {
+        
+		$data="SELECT * FROM document_image where nameFolder='".$namafolder."'";
+       return $this->db2->query($data)->row();
     }
 
 //////----------///////
