@@ -42,8 +42,8 @@
     <nav>
       <div class="btn-add" type="none">
         <a href="<?php echo base_url('Welcome/Index') ?>" target="_self">
-        <img src="<?php echo base_url ('assets/pago/img/logo_abn.png')?>" alt="Logo ABN NasDem">
-      </a>
+          <img src="<?php echo base_url ('assets/pago/img/logo_abn.png')?>" alt="Logo ABN NasDem">
+        </a>
       </div>
       <div>
         <ul type="none">
@@ -181,7 +181,7 @@
                 <div class="gambar">
                   <?php foreach($v_image as $item){ ?>  
                     <div class="box">
-                      <img src="<?php echo base_url('uploads/' . $item->file_content)?>" style="height:130px">
+                      <img src="<?php echo base_url('uploads/'.$item->nameFolder.'/'. $item->file_content)?>" style="height:130px">
                     </div>
                   <?php } ?>
                 </div>
@@ -275,7 +275,7 @@
             <div>
                 <div class="containerr">
                   <div class="cards-container">
-                    <div class="card-b">
+                    <!-- <div class="card-b">
                       <div class="elms-animation">
                         <span class="one"></span>
                         <span class="two"></span>
@@ -289,22 +289,27 @@
                       <div class="content">
                         <h3 class="pc">Gubernur ABN</h3>
                       </div>
-                    </div>
-                    <div class="card-b">
-                      <div class="elms-animation">
-                        <span class="one"></span>
-                        <span class="two"></span>
-                        <span class="three"></span>
-                        <span class="four"></span>
+                    </div> -->
+                    <?php foreach ($profile as $tokoh_all){?> 
+                      <div class="card-b">
+                      
+                        <div class="elms-animation">
+                          <span class="one"></span>
+                          <span class="two"></span>
+                          <span class="three"></span>
+                          <span class="four"></span>
+                        </div>
+                           
+                          <img src="<?php echo base_url('uploads/' .  $tokoh_all->file_content)?>" alt=""/>
+                          <div class="content">
+                            <h2 class="jabatan"><?php echo $tokoh_all->nama_asli ?></h2>
+                          </div>
+                          <div class="content">
+                          <a href="<?php echo base_url("Home/profiles/" . $tokoh_all->code_image . '-' . $tokoh_all->id_doctokoh) ?>" target="blank"><h3 class="pc">Gubernur ABN</h3></a>
+                          </div>
                       </div>
-                      <img src="<?php echo base_url ('assets/pago/img/settama.jpg')?>" alt=""/>
-                      <div class="content">
-                        <h2 class="jabatan">Eusebio Hornai Rebello</h2>
-                      </div>
-                      <div class="content">
-                        <h3 class="pc">Settama</h3>
-                      </div>
-                    </div>
+                    <?php } ?>
+                    
                     <div class="card-b">
                       <div class="elms-animation">
                         <span class="one"></span>

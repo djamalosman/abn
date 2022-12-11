@@ -27,8 +27,21 @@ class Home extends CI_Controller {
                  $id_image=$field[0];
                  $result['v_image'] = $this->Model_create_document->views_image_bankfoto($id_image);
                  $result['map'] = $this->Model_create_document->getmapdata();
-		$result['foto'] = $this->Model_create_document->views_beranda();
-     $this->load->view('beranda',$result);
+		         $result['foto'] = $this->Model_create_document->views_beranda();
+                 $result['profile'] = $this->Model_create_document->doc_all_tokoh();
+                 $this->load->view('beranda',$result);
+	}
+
+    public function profiles($newsdata)
+	{
+        $nama = $newsdata;
+        $ambil = explode("-", $nama);
+        $codeimage = $ambil['0'];
+        $id_news = $ambil['1'];
+        $result['v_news'] = $this->Model_create_document->get_berita($id_news);
+        $result['profile'] = $this->Model_create_document->v_one_doc_tokoh_row($codeimage,$id_news);
+        $result['profileresult'] = $this->Model_create_document->v_one_doc_tokoh_result($codeimage,$id_news);
+		$this->load->view('Profile',$result);
 	}
 
     // detail berita
