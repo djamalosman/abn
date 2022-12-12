@@ -27,7 +27,13 @@
       margin: 0;
     }
 
-
+    a{
+                color: #080808;
+                text-decoration: none;
+                }
+                a:hover {
+                color: #080808;
+              }
   </style>
 
 </head>
@@ -107,28 +113,16 @@
                           <div class="col mb-5">
                             <div class="card h-100">
                              
-                                <a href="<?php echo base_url("DetailNews/" . $item->code_image . '-' . $item->id_docnews) ?>">
+                                
                                       <img src="<?php echo base_url('uploads/' . $item->file_content)?>" style="height:260px" class="card-img-top" alt="...">    
-                                </a>
+                                
                               <div class="card-body">
                                 
-                                  <h6 class="card-title" ><?php echo $item->judul; ?></h6>
+                              <h6 class="card-title" ><a href="<?php echo base_url("Home/DetailNews/" . $item->code_image . '-' . $item->id_docnews) ?> style="color:black;""><?php echo $item->judul; ?> </a></h6>
 
                                   <p class="card-text" style="text-align: left;">
                                     
-                                    <?php 
-                                    $string = strip_tags($item->description);
-                                    if (strlen($string) > 500) {
                                     
-                                        // truncate string
-                                        $stringCut = substr($string, 0, 500);
-                                        $endPoint = strrpos($stringCut, ' ');
-                                    
-                                        //if the string doesn't contain any space then it will cut without word basis.
-                                        $string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
-                                        $string .= '... <a href="DetailNews/'.$item->code_image."-".$item->id_docnews.'">Selengkapnya</a>';
-                                    }
-                                    echo $string; ?>
                                   </p>
                               </div>
                               <div class="card-footer">
