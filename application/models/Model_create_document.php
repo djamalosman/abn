@@ -375,7 +375,7 @@ public function views_image() {
     public function updateimage($result) {
        $this->db2->insert_batch('document_image',$result);
     }
-     public function deleteimage($idnya) {
+    public function deleteimage($idnya) {
         foreach ($idnya as $item) {
             $this->db2->where('file_content', $item);
             $this->db2->delete('document_image');
@@ -401,9 +401,9 @@ public function views_image() {
     }
   
     public function doc_all_image() {
-    $query = "select * from  document_image order by id_image desc ";
-    $data = $this->db2->query($query)->result();
-    return $data;
+        $query = "select * from  document_image order by id_image desc ";
+        $data = $this->db2->query($query)->result();
+        return $data;
     }
     public function imagedeatil()
     {
@@ -452,7 +452,38 @@ public function views_image() {
        return $this->db2->query($data)->row();
     }
 
-//////----------///////
+
+//--STruktur organisasi--//
+
+public function AllDataStrkOrgAdmin()
+{
+    $data="SELECT * FROM document_struktur_organisasi";
+    return $this->db2->query($data)->result();
+}
+
+public function insertStrkOrgAdmin($result) {
+   $this->db2->insert_batch('document_struktur_organisasi',$result);
+}
+
+public function deleteStrkOrgAdmin($id)
+{
+    
+    $this->db2->where('id_file',$id);
+    $this->db2->delete('document_struktur_organisasi');
+}
+
+public function deatilStrkOrgResult($id) {
+    $query = "SELECT a.id_file,a.name_file
+    FROM document_struktur_organisasi as a where a.id_file='".$id."' ";
+    $data = $this->db2->query($query)->result();
+    return $data;
+}
+
+public function AllViewDataStrkOrgAdmin()
+{
+    $data="SELECT * FROM document_struktur_organisasi order by id_file desc ";
+    return $this->db2->query($data)->row();
+}
 
 
 

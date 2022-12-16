@@ -129,7 +129,10 @@
             <h2 class="liputan1">Dokumentasi Kegiatan, Logo Sayap & Partai NasDem, Struktur ABN NasDem Serta DPP Partai NasDem</h2>
             <div class="gambar">
               <div class="box">
-                <img src="<?php echo base_url ('assets/pago/img/STRUKTUR.png')?>">
+              <a href="<?php echo base_url('StrukturOrganisasi/Index') ?>">
+                  <img src="<?php echo base_url ('assets/pago/img/STRUKTUR.png')?>">
+                </a>
+               
               </div>
               <div class="box">
                 <img src="<?php echo base_url ('assets/pago/img/BIODATA.png')?>">

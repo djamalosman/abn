@@ -15,39 +15,17 @@ class Gallery extends CI_Controller {
 	public function index()
 	{
 		$folderId = $this->Model_create_document->getidFolderimg();
-		// var_dump($folderId->idfolder);
-		// die();
+		
 		$result['foto_one'] = $this->Model_create_document->views_image_bankfoto_one($folderId->idfolder);
 		$result['nmkegiatan'] = $this->Model_create_document->getidFolderimg($folderId->idfolder);
 		$urlDOwnloadOne= $this->Model_create_document->getidFolderimgZip($folderId->idfolder);
-		// $directoryOne = './uploads/'.$urlDOwnloadOne->nameFolder;
-  		// $result["dataOne"] = glob($directoryOne . "/*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}",GLOB_BRACE);
 		
 		$result['foto_two'] = $this->Model_create_document->views_image_bankfoto_two($folderId->idfolder);
 		$result['nmkegiatanTwo'] = $this->Model_create_document->getidFolderimgTwo($folderId->idfolder);
         $this->load->view('gallery',$result);
 	}
 
-	public function DownloadZipImg()
-	{
-				//$result= $this->Model_create_document->getConvertTozipImg();
-				$nameFolder=$this->input->post('imagezip');
-				
-        		 // File name
-				 $filename =$nameFolder;
 
-				 // Directory path (uploads directory stored in project root)
-				 $path = 'uploads'.'/'.$nameFolder;
-	 
-				 // Add directory to zip
-				 $this->zip->read_dir($path);
-	 
-				 // Save the zip file to archivefiles directory
-				 $this->zip->archive(FCPATH.'/archivefiles/'.$filename);
-	 
-				 // Download
-				 $this->zip->download($filename);
-	}
 
 	public function DownloadImageTozip()
 	{

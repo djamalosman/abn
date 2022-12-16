@@ -95,6 +95,8 @@ $route['opini']='Create_document_opini/index';
 $route['image_v']='Create_document_image/index';
 $route['video_v']='Create_document_video/index';
 
+$route['strorgn_v']='Strkorgsn/index';
+
 $route['data_news']='Create_document/v_all_doc_news';
 $route['data_opini']='Create_document_opini/v_all_doc_opini';
 $route['data_agenda']='Create_document_agenda/v_all_doc_agenda';
